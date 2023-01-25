@@ -8,9 +8,9 @@ from parse_datasets import TCGA_DATASETS
 import scipy.stats as ss
 
 
-def get_hallmark_genesets(expressed_genes):
+def get_hallmark_genesets(expressed_genes, dir="."):
 
-    with open("data/h.all.v2022.1.Hs.json") as f:
+    with open(f"{dir}/data/h.all.v2022.1.Hs.json") as f:
         hallmark = json.load(f)
 
     return {

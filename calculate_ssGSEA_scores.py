@@ -5,6 +5,7 @@ import pandas as pd
 from tqdm import tqdm
 from single_sample_gsea import ss_gsea as ssGSEA
 from parse_datasets import TCGA_DATASETS
+import scipy.stats as ss
 
 
 def get_hallmark_genesets(expressed_genes):
@@ -25,12 +26,15 @@ def calculate_ssGSEA(tcga: str):
     ).T
     expressions = np.log(expressions + 1)
     expressions = (expressions - expressions.mean(axis=0)) / expressions.std(axis=0)
+    expressions = expressions.dropna(axis=1)
+    expressions = expressions.fillna(0)
 
     hallmark_genesets = get_hallmark_genesets(expressions.columns)
 
-    ssGSEA_scores = ssGSEA(expressions.T, hallmark_genesets)
+    expressions = expressions.T
+    expressions.index.name = "gene"
 
-    ssGSEA_scores = pd.DataFrame(ssGSEA_scores, index=expressions.index.values)
+    ssGSEA_scores = ssGSEA(expressions, hallmark_genesets)
 
     ssGSEA_scores.reset_index().to_csv(
         f"TCGA/TCGA-{tcga}-ssGSEA.tsv", sep="\t", index=False
@@ -43,7 +47,7 @@ if __name__ == "__main__":
 
     for tcga in tqdm(TCGA_DATASETS):
 
-        if f"TCGA-{tcga}-ssGSEA.tsv" in already_calculated:
-            continue
+        # if f"TCGA-{tcga}-ssGSEA.tsv" in already_calculated:
+        #    continue
 
         calculate_ssGSEA(tcga)

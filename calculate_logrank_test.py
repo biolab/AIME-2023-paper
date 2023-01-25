@@ -17,7 +17,9 @@ def calculate_logrank_test(
         )
         ssgsea = pd.read_csv(f"TCGA/TCGA-{tcga}-ssGSEA.tsv", sep="\t", index_col=[0])
 
-        results += [calculate_logrank_for_one_dataset(metadata, ssgsea, tcga)]
+        results += [
+            calculate_logrank_for_one_dataset(metadata, ssgsea, tcga, return_value)
+        ]
 
     return pd.concat(results, axis=1)
 

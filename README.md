@@ -1,4 +1,7 @@
+[![DOI](https://zenodo.org/badge/582559271.svg)](https://zenodo.org/badge/latestdoi/582559271)
+
 # AIME-2023: Ranking of Cancer Survival-Related Gene Sets through Integration of Single-Sample Gene Set Enrichment and Survival Analysis
+
 
 The scripts and data used to perform the analysis and generate the figures are available in this repository.
 

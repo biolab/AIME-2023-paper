@@ -1,4 +1,5 @@
-[![DOI](https://zenodo.org/badge/582559271.svg)](https://zenodo.org/badge/latestdoi/582559271)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7572950.svg)](https://doi.org/10.5281/zenodo.7572950)
+
 
 # AIME-2023: Ranking of Cancer Survival-Related Gene Sets through Integration of Single-Sample Gene Set Enrichment and Survival Analysis
 

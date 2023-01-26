@@ -7,13 +7,18 @@ and storing relevant files into data/ folder.
 import os
 import urllib.request
 
+
 EXPRESSION_DATA_NAME = "GSM1536837_06_01_15_TCGA_24.tumor_Rsubread_TPM.txt.gz"
 CLINICAL_DATA_NAME = (
     "GSE62944_06_01_15_TCGA_24_548_Clinical_Variables_9264_Samples.txt.gz"
 )
 CANCER_DATA_NAME = "GSE62944_06_01_15_TCGA_24_CancerType_Samples.txt.gz"
 
+
+EXPRESSION_DATA_LINK = "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSM1536837&format=file&file=GSM1536837%5F06%5F01%5F15%5FTCGA%5F24%2Etumor%5FRsubread%5FTPM%2Etxt%2Egz"
+
 CLINICAL_DOWNLOAD_LINK = "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE62944&format=file&file=GSE62944%5F06%5F01%5F15%5FTCGA%5F24%5F548%5FClinical%5FVariables%5F9264%5FSamples%2Etxt%2Egz"
+
 CANCER_DOWNLOAD_LINK = "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE62944&format=file&file=GSE62944%5F06%5F01%5F15%5FTCGA%5F24%5FCancerType%5FSamples%2Etxt%2Egz"
 
 
@@ -31,14 +36,9 @@ def download_expression_data() -> None:
 Expression data not found.
 Please follow the instruction to download the expression data manually.
 
-1.) Visit: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE62944
-2.) At the bottom of the page find: GSE62944_RAW.tar
-3.) Press (custom) to expand the selection.
-4.) Toggle the sixth file named: {EXPRESSION_DATA_NAME}
-5.) Press Download button to download.
-6.) Wait a few minutes for GSE62944_RAW.tar folder to download.
-7.) Extract the downloaded folder into the data/ folder.
-8.) Keep the extracted file zipped (.gz) to save space.
+1.) Visit: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM1536837
+2.) At the bottom of the page download GSM1536837_06_01_15_TCGA_24.tumor_Rsubread_TPM.txt.gz
+3.) Move the downloaded file into the data/ folder.
 """
         )
 

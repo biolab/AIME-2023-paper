@@ -1,11 +1,15 @@
 import os
-import numpy as np
 import json
+
+import numpy as np
 import pandas as pd
+import scipy.stats as ss
+
 from tqdm import tqdm
+
+
 from single_sample_gsea import ss_gsea as ssGSEA
 from parse_datasets import TCGA_DATASETS
-import scipy.stats as ss
 
 
 def get_hallmark_genesets(expressed_genes, dir="."):
@@ -43,11 +47,6 @@ def calculate_ssGSEA(tcga: str):
 
 if __name__ == "__main__":
 
-    already_calculated = [fn for fn in os.listdir("TCGA") if "ssGSEA" in fn]
-
     for tcga in tqdm(TCGA_DATASETS):
-
-        # if f"TCGA-{tcga}-ssGSEA.tsv" in already_calculated:
-        #    continue
 
         calculate_ssGSEA(tcga)

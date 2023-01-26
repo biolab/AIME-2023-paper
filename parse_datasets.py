@@ -1,6 +1,7 @@
 import os
 import numpy as np
 import pandas as pd
+
 from tqdm import tqdm
 
 TCGA_DATASETS = [
@@ -119,7 +120,6 @@ def parse_metadata():
     metadata.reset_index().to_csv("TCGA/metadata.tsv", sep="\t", index=False)
 
     for tcga in tqdm(TCGA_DATASETS):
-
         metadata.loc[cancer["TCGA"] == tcga].reset_index().to_csv(
             f"TCGA/TCGA-{tcga}-metadata.tsv", sep="\t", index=False
         )
@@ -131,5 +131,4 @@ if __name__ == "__main__":
         os.mkdir("TCGA")
 
     parse_metadata()
-
     parse_RNA_seq_data()
